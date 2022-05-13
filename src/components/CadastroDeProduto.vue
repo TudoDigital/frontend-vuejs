@@ -1,52 +1,67 @@
 <template>
-  <div class="container-md">
-    <!-- Content here -->
-    <h3>Cadastro de Produto</h3>
-
-    <form>
-      <div class="mb-3">
-        <label for="produto" class="form-label">Produto</label>
-        <input
-          type="text"
-          class="form-control"
-          id="produto"
-          placeholder="Insira o nome do produto"
-        />
+  <div class="container">
+    <h1>Cadastro de Produto</h1>
+    <hr />
+    <form @submit.prevent="submitForm" autocomplete="off">
+      <div class="form-group">
+        <label for="produto">Produto:</label>
+        <input class="form-control" v-model="produto.nome" id="produto">
+        <p v-if="!nomeEstaValido" class="error-message">Produto precisa ter um nome.</p>
       </div>
-      <div class="mb-3">
-        <label for="descricao" class="form-label">Descrição</label>
-        <textarea
-          class="form-control"
-          id="descricao"
-          rows="3"
-          placeholder="Descrição do produto"
-        ></textarea>
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <textarea class="form-control" v-model="produto.descricao" id="descricao"></textarea>
       </div>
-      <div class="mb-3">
-        <label for="categoria" class="form-label">Categoria</label>
-        <select class="form-select" aria-label="Categoria de produto">
-          <option selected>(Selecione uma categoria)</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+      <div class="form-group">
+        <label for="categoria">Categoria:</label>
+        <input class="form-control" v-model="produto.categoria" id="categoria">
       </div>
-      <div class="mb-3">
-        <label for="preco" class="form-label">Preço</label>
-        <input
-          type="number"
-          class="form-control"
-          id="preco"
-          placeholder="R$"
-        />
+      <div class="form-group">
+        <label for="preco">Preço:</label>
+        <input class="form-control" v-model.number="produto.preco" id="preco">
+        <p v-if="!precoEstaValido" class="error-message">Por favor, insira apenas números.</p>
       </div>
-      <div><input class="btn btn-primary" type="submit" value="Cadastrar"></div>
+      <div>
+        <button :disabled="!produtoEstaValido" class="btn btn-primary" type="submit">Cadastrar</button>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CadastroDeProduto",
-};
+  data() {
+    return {
+      produto: {
+        nome: '',
+        descricao: '',
+        categoria: '',
+        preco: null
+      }
+    }
+  },
+  methods: {
+    submitForm() {
+      if (this.produtoEstaValido) {
+        console.log("Cadastrado", this.produto)
+      } else {
+        console.log("Não cadastrado", this.produto)
+      }
+    }
+  },
+  computed: {
+    nomeEstaValido() {
+      return !!this.produto.nome
+    },
+    categoriaEstaValida() {
+      return !!this.produto.categoria
+    },
+    precoEstaValido() {
+      return typeof this.produto.preco === 'number'
+    },
+    produtoEstaValido() {
+      return this.nomeEstaValido && this.precoEstaValido && this.categoriaEstaValida
+    }
+  }
+}
 </script>
