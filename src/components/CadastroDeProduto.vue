@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-sm">
     <h1>Cadastro de Produto</h1>
     <hr />
     <form @submit.prevent="submitForm" autocomplete="off">
@@ -7,10 +7,6 @@
         <label for="produto">Produto:</label>
         <input class="form-control" v-model="produto.nome" id="produto">
         <p v-if="!nomeEstaValido" class="error-message">Produto precisa ter um nome.</p>
-      </div>
-      <div class="form-group">
-        <label for="descricao">Descrição:</label>
-        <textarea class="form-control" v-model="produto.descricao" id="descricao"></textarea>
       </div>
       <div class="form-group">
         <label for="categoria">Categoria:</label>
@@ -34,7 +30,6 @@ export default {
     return {
       produto: {
         nome: '',
-        descricao: '',
         categoria: '',
         preco: null
       }
