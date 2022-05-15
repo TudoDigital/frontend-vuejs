@@ -38,19 +38,25 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <HttpAxios />
+      <HttpFetch />
+      <ConsultaProdutos/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import HttpAxios from './components/HttpAxios'
+import HttpFetch from './components/HttpFetch'
+import ConsultaProdutos from './components/ConsultaProdutos'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    ConsultaProdutos,
+    HttpAxios,
+    HttpFetch
   },
 
   data: () => ({
