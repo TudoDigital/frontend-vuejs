@@ -1,4 +1,4 @@
-# frontend-vuejs
+# frontend
 
 ## Project setup
 ```
@@ -9,7 +9,6 @@ npm install
 ```
 npm run serve
 ```
-Obs.: The server must run in 8081 port due CORS API rules.
 
 ### Compiles and minifies for production
 ```
