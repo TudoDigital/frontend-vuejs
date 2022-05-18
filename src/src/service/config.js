@@ -10,3 +10,8 @@ export const http = axios.create({
     baseURL: 'http://localhost:8080'
 })
 
+{
+  "nome": "Beliche",
+  "preco": 900,
+  "idcategoria": 2
+} 
