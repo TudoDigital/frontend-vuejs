@@ -5,6 +5,7 @@ import Home from './views/Home'
 import Produtos from './views/Produtos'
 import Promocoes from './views/Promocoes'
 import Categorias from './views/Categorias'
+import Compra from './views/Compra'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ const router = new Router({
             path: '/categorias',
             name: 'categorias',
             component: Categorias
+        },
+        {
+            path: '/compra',
+            name: 'compra',
+            component: Compra
         }
     ]
 })
