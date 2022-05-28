@@ -21,26 +21,26 @@
     </v-app-bar>
 
     <v-main>
-      <CadastroDeProduto/>
+      <p>
+          <router-link to="/">Consulta</router-link>
+          <br>
+          <router-link to="/produto">Cadastro de Produtos</router-link>
+      </p>
+      <router-view></router-view>
       <HttpAxios />
       <HttpFetch />
-      <ConsultaProdutos/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import CadastroDeProduto from './components/CadastroDeProduto';
 import HttpAxios from './components/HttpAxios'
 import HttpFetch from './components/HttpFetch'
-import ConsultaProdutos from './components/ConsultaProdutos'
 
 export default {
   name: 'App',
 
   components: {
-    CadastroDeProduto,
-    ConsultaProdutos,
     HttpAxios,
     HttpFetch
   },
