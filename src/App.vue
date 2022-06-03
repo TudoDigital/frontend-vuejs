@@ -1,52 +1,71 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <a class="navbar-brand" href="#">
-          <img src="./assets/logo.png" alt="" width="50" height="50">
-        </a>
-        <h2>DYNAMICS</h2>
-      </div>
+    <v-navigation-drawer app dark>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h5 mt-2">
+            <v-row>
+              <v-col md=4>
+                <img src="./assets/logo.png" class="" width="50" height="50">
+              </v-col>
+              <v-col class="mt-4 ml-0 pl-0">
+                DYNAMICS
+              </v-col>
+            </v-row>
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
-      <v-spacer></v-spacer>
+      <v-divider></v-divider>
 
-      <input class="form-control form-control-sm" 
-        type="text" 
-        placeholder="Pesquisar" 
-        aria-label="pesquisar">
-    </v-app-bar>
+      <v-list nav dense>
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          
+          <v-list-item to="/">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Consulta</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item to="/produto">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Cadastro de Produtos</v-list-item-title>
+          </v-list-item>
+
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main>
-      <CadastroDeProduto/>
-      <HttpAxios />
-      <HttpFetch />
-      <ConsultaProdutos/>
+      <v-container fluid>
+        <router-view></router-view>
+        <HttpAxios />
+        <HttpFetch />
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import CadastroDeProduto from './components/CadastroDeProduto';
 import HttpAxios from './components/HttpAxios'
 import HttpFetch from './components/HttpFetch'
-import ConsultaProdutos from './components/ConsultaProdutos'
 
 export default {
   name: 'App',
 
   components: {
-    CadastroDeProduto,
-    ConsultaProdutos,
     HttpAxios,
     HttpFetch
   },
 
   data: () => ({
-    //
+      group: null,
   }),
 };
 </script>

@@ -53,7 +53,7 @@ import axios from "axios";
       }
     },
     mounted() {
-    axios.get("http://localhost:8080/produto")
+    axios.get("http://localhost:8081/produto")
       .then(response => {
         this.products = response.data;
       })
@@ -64,12 +64,7 @@ import axios from "axios";
     computed: {
       headers () {
         return [
-          {
-            text: 'Id.',
-            align: 'start',
-            value: 'id',
-            width: 80
-          },
+          { text: 'Id.', align: 'start', value: 'id', width: 80 },
           { text: 'Produto', value: 'nome' },
           { text: 'Categoria', value: 'categoria.descricao' },
           { text: 'Preço', value: 'preco', width: 180, align: 'center' },
