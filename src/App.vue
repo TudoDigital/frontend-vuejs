@@ -38,6 +38,13 @@
             <v-list-item-title>Cadastro de Produtos</v-list-item-title>
           </v-list-item>
 
+          <v-list-item to="/promocao">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Cadastro de Promoção</v-list-item-title>
+          </v-list-item>
+
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>

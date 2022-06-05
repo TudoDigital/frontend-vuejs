@@ -4,13 +4,15 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import "./plugins/vuetify-money.js";
 import ConsultaProdutos from './components/ConsultaProdutos'
+import CadastroPromocao from './components/CadastroPromocao'
 import CadastraProduto from './components/CadastroDeProduto';
 
 Vue.use(VueRouter)
 
 const routes = [
     { path: '/', component: ConsultaProdutos },
-    { path: '/produto', component: CadastraProduto }
+    { path: '/produto', component: CadastraProduto },
+    { path: '/promocao', component: CadastroPromocao }
 ]
 
 const router = new VueRouter({
